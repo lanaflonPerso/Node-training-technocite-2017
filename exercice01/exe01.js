@@ -1,9 +1,9 @@
 function num2Letters(number) {
-    if (isNan(number) || number < 0 || number > 999) {
+    if (isNaN(number) || number < 0 || number > 999) {
         return 'Veuillez entrer un nombre entier compris entre 0 et 999.';
     }
     var units2Letters = ['', 'un', 'deux', 'trois', 'quatre', 'cinq', 'six', 'sept', 'huit', 'neuf', 'dix', 'onze', 'douze', 'treize', 'quatorze', 'quinze', 'seize', 'dix-sept', 'dix-huit', 'dix-neuf'],
-        tens2Letters = ['', 'dix', 'vingt', 'trente', 'quarante', 'cinquante', 'soixante', 'soixante', 'quatre-vingt', 'quatre-vingt'];
+        tens2Letters = ['', 'dix', 'vingt', 'trente', 'quarante', 'cinquante', 'soixante', 'septante', 'quatre-vingt','nonante'];
     var units = number % 10,
         tens = (number % 100 - units) / 10,
         hundreds = (number % 1000 - number % 100) / 100;
@@ -16,9 +16,6 @@ function num2Letters(number) {
         // Traitement des dizaines
         if (tens === 1 && units > 0) {
             tensOut = units2Letters[10 + units];
-            unitsOut = '';
-        } else if (tens === 7 || tens === 9) {
-            tensOut = tens2Letters[tens] + '-' + (tens === 7 && units === 1 ? 'et-' : '') + units2Letters[10 + units];
             unitsOut = '';
         } else {
             tensOut = tens2Letters[tens];
