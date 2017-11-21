@@ -11,6 +11,7 @@ const checkActions = () => {
 const checkValue = () => (value)? true : false;
  if (checkActions() && checkValue()){
   fileManager.init('./list.txt',action,value);
+
  } else{
      console.log(`
 the possible actions are :
