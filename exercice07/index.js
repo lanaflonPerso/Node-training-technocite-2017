@@ -10,7 +10,6 @@ const routeManager = (req, res)=>{
         require('./controllers/' + routes[route].controller)(req, res)
     }
     else {
-        require('./controllers/error')(req, res)
     }
 }
 
