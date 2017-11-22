@@ -11,7 +11,17 @@ module.exports = (req, res) => {
 
             break;
             case 'POST':
-            console.log('post an the way')
+            let formBook='';
+            req.on('data',((data)=>{
+                formBook+=data;
+            }));
+            req.on('end',()=>{
+                console.log(JSON.parse(formBook))
+            })
+           
+            // book.addBook('values')
+            res.setHeader('Content-type', 'application/json')
+
             res.end();
         default:
             break
