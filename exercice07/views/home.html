@@ -10,7 +10,7 @@
 
 <body>
     <h1>Ma liste de livre</h1>
-    <ul>
+    <ul id='list'>
         <li>%books%</li>
     </ul>
     <form id="book-form">
@@ -29,7 +29,6 @@
                 object[key] = value;
             });
             var json = JSON.stringify(object);
-
             fetch("/api/books", {
                 headers: {
                     'Accept': 'application/json',
@@ -37,6 +36,15 @@
                 },
                 method: "POST",
                 body: json
+            }).then((resp)=>{
+                resp.json().then(data=>{
+                    let str = JSON.parse(data).reduce((prev,next)=>{
+                        return prev+`<li>${next.name} - ${next.author}</li>`
+                    },'');
+                    let liste =document.getElementById('list');
+                    console.log(liste)
+                    liste.innerHTML=str
+                })
             })
         })
     </script>
