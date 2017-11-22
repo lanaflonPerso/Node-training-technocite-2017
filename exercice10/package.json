@@ -1,0 +1,27 @@
+{
+    "name": "dang-thats-delicious",
+    "version": "0.0.0",
+    "private": true,
+    "engines": {
+        "node": ">= 7.6.0"
+    },
+    "scripts": {
+        "prod": "node ./start.js",
+        "watch": "nodemon ./start.js --ignore public/",
+        "start": "concurrently \"npm run watch\""
+    },
+    "browserslist": "last 3 versions",
+    "dependencies": {
+        "body-parser": "1.17.1",
+        "dompurify": "0.8.5",
+        "dotenv": "4.0.0",
+        "es6-promisify": "5.0.0",
+        "express": "4.15.2",
+        "express-handlebars": "^3.0.0",
+        "moment": "^2.19.2"
+    },
+    "devDependencies": {
+        "concurrently": "3.4.0",
+        "nodemon": "1.11.0"
+    }
+}
