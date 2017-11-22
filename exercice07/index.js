@@ -9,8 +9,6 @@ const routeManager = (req, res)=>{
     if (route !== -1) {
         require('./controllers/' + routes[route].controller)(req, res)
     }
-    else {
-    }
 }
 
 http.createServer(routeManager).listen(8000);
