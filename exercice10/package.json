@@ -8,14 +8,13 @@
     "scripts": {
         "prod": "node ./start.js",
         "watch": "nodemon ./start.js --ignore public/",
-        "start": "concurrently \"npm run watch\""
+        "start": "npm run watch"
     },
     "browserslist": "last 3 versions",
     "dependencies": {
         "body-parser": "1.17.1",
         "es6-promisify": "5.0.0",
         "express": "4.15.2",
-        "express-handlebars": "^3.0.0",
         "express-hbs": "^1.0.4",
         "moment": "^2.19.2"
     },
