@@ -7,6 +7,16 @@ if (major < 7 || (major === 7 && minor <= 5)) {
     process.exit();
 }
 
+// Launch Mongo connection
+require('dotenv').config({path:'variables.env'});
+const mongoose = require('mongoose')
+mongoose.connect(process.env.DB_HOST, { useMongoClient: true },(err)=>{
+    if(err) console.log(`WTF there was an error ${err.message}`);
+    console.log("mongo is now connected to our systeme please request away :)");
+});
+
+
+
 // Start our app!
 const app = require('./app');
 app.set('port', process.env.PORT || 7777);

@@ -1,0 +1,43 @@
+{
+	"_id": ObjectId('5a16a67d6d3545833207c7bb'),
+	"name": "Le plus beau magasin du monde",
+	"slug": "plus-beau",
+	"description": "La plus belles description",
+	"photo": "",
+	"location": {
+		"address": "Boulevard Initilis N7 bt4 7000 MONS, Belgique",
+		"coordinates": [
+			-78.8887767,
+			45.8876655
+		],
+		"type": "point"
+	}
+},
+{
+	"name": "La bergerie à hyon",
+	"slug": "la-bergerie",
+	"description": "Un bon resto",
+	"photo": "",
+	"location": {
+		"address": "Rue des canadiens 275 7000 MONS, Belgique",
+		"coordinates": [
+			-78.8887767,
+			45.8876655
+		],
+		"type": "point"
+	}
+},
+{
+	"name": "Jade de chine",
+	"slug": "jade-chine",
+	"description": "Un bon resto asiatique",
+	"photo": "",
+	"location": {
+		"address": "Rue d'havré 125 7000 MONS, Belgique",
+		"coordinates": [
+			-78.8887767,
+			45.8876655
+		],
+		"type": "point"
+	}
+}
