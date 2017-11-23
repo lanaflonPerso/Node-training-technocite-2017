@@ -1,4 +1,5 @@
 const express = require('express');
+const hbs = require('express-hbs');
 const path = require('path');
 const promisify = require('es6-promisify');
 const routes = require('./routes/index');
@@ -9,8 +10,13 @@ const errorHandlers = require('./handlers/errorHandlers');
 const app = express();
 
 // view engine setup
+app.engine('hbs', hbs.express4({
+    partialsDir :[`${__dirname}/views/partials`],
+    defaultLayout :`${__dirname}/views/layouts/main.hbs`
+}))
+app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'handlebars');
+
 
 // serves up static files from the public folder. Anything in public/ will just be served up as the file it is
 app.use(express.static(path.join(__dirname, 'public')));
