@@ -11,6 +11,25 @@ const magasinSchema = new mongoose.Schema({
     description:{
         type: String
     },
+    photo:{
+        type: String
+    },
+    location:{
+        type:{
+            type:String,
+            default:'Point'
+        },
+        coordinates :[
+            {
+                type:Number,
+                required:'Vous devez entrez des coordonnées'
+            }
+        ],
+        address:{
+            type: String,
+            required: 'VOus devez fournir une addresse'
+        }
+    }
 })
 
 module.exports = mongoose.model('Magasin',magasinSchema);
