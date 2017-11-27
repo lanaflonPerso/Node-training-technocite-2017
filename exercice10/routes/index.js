@@ -6,8 +6,13 @@ const pagesController = require('../controllers/pagesController');
 router.get('/', magasinController.getMagasins)
 router.get('/magasins/:slug', magasinController.getMagasinBySlug)
 router.get('/magasins', magasinController.getMagasins)
+router.get('/magasins/add', magasinController.addMagasin);
 router.get('/about', pagesController.about);
 router.get('/contact', pagesController.contact);
+
+
+// router.post('/magasins/add', magasinController.createMagasin);
+
 
 module.exports = router;
 

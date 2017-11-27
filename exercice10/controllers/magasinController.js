@@ -9,3 +9,7 @@ exports.getMagasinBySlug = async (req, res, next) => {
     if (!magasin) return next();
     res.render('magasin_details', { "magasin": magasin });
 }
+
+exports.addMagasin = async (req, res, next) => {
+    res.render('magasin_edit');
+}
