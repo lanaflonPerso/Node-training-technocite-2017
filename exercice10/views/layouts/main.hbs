@@ -11,10 +11,14 @@
 </head>
 
 <body>
-  {{messages}} {{#if message}}
-  <span class="inner inner--flashes flash-messages">
-    message
-  </span>
+  {{#if flash.success}}
+  <div class="inner inner--flashes flash-messages">
+    <div class="flash flash--success">
+      <p class="flash__text">{{flash.success}}</p>
+      <button class="flash__remove" onClick="this.parentElement.remove()">x</button>
+    </div>
+
+  </div>
   {{/if}} {{>header}}
   <div class="content"></div>
   {{{body}}}
