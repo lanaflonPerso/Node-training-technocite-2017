@@ -11,7 +11,11 @@
 </head>
 
 <body>
-  {{>header}}
+  {{messages}} {{#if message}}
+  <span class="inner inner--flashes flash-messages">
+    message
+  </span>
+  {{/if}} {{>header}}
   <div class="content"></div>
   {{{body}}}
   </div>

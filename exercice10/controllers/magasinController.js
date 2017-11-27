@@ -16,9 +16,20 @@ exports.getMagasinBySlug = async (req, res, next) => {
 exports.addMagasin = async (req, res, next) => {
     res.render('magasin_edit', { "magasin": {} });
 }
+exports.editMagasin = async (req, res, next) => {
+    const magasin = await Magasin.findOne({ _id: req.params.id });
+    if (!magasin) return next();
+    res.render('magasin_edit', { "magasin": magasin });
+}
 exports.createMagasin = async (req, res, next) => {
-    console.log(req.body)
     const magasin = await (new Magasin(req.body).save());
+    req.flash('success', `Successfully created ${magasin.name}`)
+    res.redirect(`/magasins/${magasin.slug}`)
+}
+
+exports.updateMagasin = async (req, res, next) => {
+    const magasin = await Magasin.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true }).exec()
+    req.flash('success', `Successfully updated ${magasin.name}`);
     res.redirect(`/magasins/${magasin.slug}`)
 }
 
@@ -33,7 +44,6 @@ const multerOptions = {
         }
     }
 }
-
 exports.upload = multer(multerOptions).single('photo')
 exports.resize = async (req, res, next) => {
     if (!req.file) {
@@ -47,3 +57,4 @@ exports.resize = async (req, res, next) => {
     await photo.write(`./public/uploads/${req.body.photo}`)
     next();
 }
+

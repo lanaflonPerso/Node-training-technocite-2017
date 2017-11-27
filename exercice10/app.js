@@ -5,6 +5,9 @@ const promisify = require('es6-promisify');
 const routes = require('./routes/index');
 const helpers = require('./helpers');
 const bodyParser = require('body-parser');
+const session = require('express-session');
+const cookieParser = require('cookie-parser');
+const flash = require('connect-flash');
 const errorHandlers = require('./handlers/errorHandlers');
 
 // create our Express app
@@ -25,8 +28,17 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Take the raw requests and turn them into usable properties of req.body
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }));
-
-
+// Cookie management
+app.use(cookieParser());
+// Session management
+app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: true }
+  }));
+// Flash message management
+app.use(flash());
 
 app.use('/', routes);
 

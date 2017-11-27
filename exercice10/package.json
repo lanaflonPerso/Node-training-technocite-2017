@@ -13,10 +13,13 @@
     "browserslist": "last 3 versions",
     "dependencies": {
         "body-parser": "^1.18.2",
+        "connect-flash": "^0.1.1",
+        "cookie-parser": "^1.4.3",
         "dotenv": "^4.0.0",
         "es6-promisify": "5.0.0",
         "express": "4.15.2",
         "express-hbs": "^1.0.4",
+        "express-session": "^1.15.6",
         "jimp": "^0.2.28",
         "moment": "^2.19.2",
         "mongoose": "^4.13.4",

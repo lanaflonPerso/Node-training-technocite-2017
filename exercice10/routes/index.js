@@ -7,14 +7,17 @@ router.get('/', magasinController.getMagasins)
 router.get('/magasins/:slug', magasinController.getMagasinBySlug)
 router.get('/magasins', magasinController.getMagasins)
 router.get('/magasins/add', magasinController.addMagasin);
+router.get('/magasins/:id/edit', magasinController.editMagasin);
 router.get('/about', pagesController.about);
 router.get('/contact', pagesController.contact);
-
-
 router.post('/magasins/add',
     magasinController.upload,
     magasinController.resize,
     magasinController.createMagasin);
+router.post('/magasins/add/:id',
+    magasinController.upload,
+    magasinController.resize,
+    magasinController.updateMagasin);
 
 
 module.exports = router;

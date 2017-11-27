@@ -1,5 +1,5 @@
 <h2>Add Magasin</h2>
-<form action="/magasins/add" method="POST" class="card" enctype="multipart/form-data">
+<form action="/magasins/add/{{magasin._id}}" method="POST" class="card" enctype="multipart/form-data">
     <label for="name">
         Name:
         <input type="text" name="name" id="name" value="{{magasin.name}}">
@@ -10,24 +10,24 @@
     </label>
     <label for="description">
         Description:
-        <textarea type="text" name="description" id="description" value="{{magasin.description}}"></textarea>
+        <textarea type="text" name="description" id="description">{{magasin.description}}</textarea>
     </label>
     <label for="photo">
         Photo:
         <input type="file" name="photo" id="photo" accept="image/gif, image/png, image/jpeg"> {{#if magasin.photo}}
         <img src="/uploads/{{magasin.photo}}" alt=""> {{/if}}
     </label>
-    <label for="location.address">
+    <label for="location[address]">
         Addresse:
-        <input type="text" name="location.address" id="address" value="{{magasin.location.address}}">
+        <input type="text" name=location[address] id="address" value="{{magasin.location.address}}">
     </label>
     <label for="location[coordinates][0]">
         Longitude:
-        <input type="text" name="location[coordinates][0]" id="lng" value="{{magasin.location.coordinates.[0]}}">
+        <input type="text" name=location[coordinates][0] id="lng" value="{{magasin.location.coordinates.[0]}}">
     </label>
     <label for="location[coordinates][1]">
         Latitude:
-        <input type="text" name="location[coordinates][1]" id="lat" value="{{magasin.location.coordinates.[1]}}">
+        <input type="text" name=location[coordinates][1] id="lat" value="{{magasin.location.coordinates.[1]}}">
     </label>
 
     <input type="submit" name="Ajout du magasin">
