@@ -714,9 +714,13 @@ label {
 
 .store {
   background: white;
+  color:white;
   margin: 10px 0;
   width: 30%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), 0 5px 10px rgba(0, 0, 0, 0.05); }
+  .store a{
+    color:white;
+  }
   .store--wide {
     width: 100%; }
   .store__details {
@@ -756,6 +760,7 @@ label {
     border-bottom: 0; }
 
 .store__hero {
+ 
   position: relative;
   padding: 0 10px 0 10px;
   text-align: right; }

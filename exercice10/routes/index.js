@@ -3,10 +3,11 @@ const router = express.Router();
 const magasinController = require('../controllers/magasinController');
 const pagesController = require('../controllers/pagesController');
 
-router.get('/',magasinController.getMagasins)
-router.get('/magasins',magasinController.getMagasins)
-router.get('/about',pagesController.about);
-router.get('/contact',pagesController.contact);
+router.get('/', magasinController.getMagasins)
+router.get('/magasins/:slug', magasinController.getMagasinBySlug)
+router.get('/magasins', magasinController.getMagasins)
+router.get('/about', pagesController.about);
+router.get('/contact', pagesController.contact);
 
 module.exports = router;
 
