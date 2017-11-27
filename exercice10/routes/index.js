@@ -11,7 +11,7 @@ router.get('/about', pagesController.about);
 router.get('/contact', pagesController.contact);
 
 
-// router.post('/magasins/add', magasinController.createMagasin);
+router.post('/magasins/add', magasinController.createMagasin);
 
 
 module.exports = router;

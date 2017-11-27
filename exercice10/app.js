@@ -4,6 +4,7 @@ const path = require('path');
 const promisify = require('es6-promisify');
 const routes = require('./routes/index');
 const helpers = require('./helpers');
+const bodyParser = require('body-parser');
 const errorHandlers = require('./handlers/errorHandlers');
 
 // create our Express app
@@ -20,6 +21,12 @@ app.set('views', path.join(__dirname, 'views'));
 helpers.registerHelpers(hbs);
 // serves up static files from the public folder. Anything in public/ will just be served up as the file it is
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Take the raw requests and turn them into usable properties of req.body
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }));
+
+
 
 app.use('/', routes);
 

@@ -11,5 +11,11 @@ exports.getMagasinBySlug = async (req, res, next) => {
 }
 
 exports.addMagasin = async (req, res, next) => {
-    res.render('magasin_edit');
+    res.render('magasin_edit', { "magasin": {} });
+}
+exports.createMagasin = async (req, res, next) => {
+    console.log(req.body)
+    const magasin = await (new Magasin(req.body).save());
+    res.redirect(`/magasins/${magasin.slug}`)
+    // res.render('magasin_edit');
 }
