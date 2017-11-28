@@ -3,8 +3,12 @@ module.exports = {
     method: 'GET',
     path: '/api/series/',
     handler: (req, h) => {
-        // console.log(req)
-        console.log(h);
-        return 'hello world'
+        return {
+            name: "gilles",
+            age: 43,
+            isTired: true,
+            childrens: ["Anthony", "Bliss"]
+        }
+
     }
 }
