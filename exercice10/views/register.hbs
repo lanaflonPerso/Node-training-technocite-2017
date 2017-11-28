@@ -1,12 +1,12 @@
-<form action="/register" class="form">
-<h2>Register</h2>
-<label for="name">Name:</label>
-<input type="text" name="name"> 
-<label for="email">Email:</label>
-<input type="text" name="email">
-<label for="password">Password:</label>
-<input type="password" name="password">
-<label for="password-confirm">Confirm Password:</label>
-<input type="password" name="password-confirm">
-<input type="submit" class="button" value!"Register">
+<form action="/register" class="form" method="POST">
+    <h2>Register</h2>
+    <label for="name">Name:</label>
+    <input type="text" name="name" value={{user.name}}>
+    <label for="email">Email:</label>
+    <input type="text" name="email" value={{user.email}}>
+    <label for="password">Password:</label>
+    <input type="password" name="password" value={{user.password}}>
+    <label for="password-confirm">Confirm Password:</label>
+    <input type="password" name="password-confirm" value={{user.password-confirm}}>
+    <input type="submit" class="button" value! "Register">
 </form>

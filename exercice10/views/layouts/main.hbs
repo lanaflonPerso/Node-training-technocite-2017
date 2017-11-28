@@ -19,7 +19,14 @@
     </div>
 
   </div>
-  {{/if}} {{>header}}
+  {{/if}} {{#if flash.error}} {{#each flash.error as |error|}}
+  <div class="inner inner--flashes flash-messages">
+    <div class="flash flash--error">
+      <p class="flash__text">{{error}}</p>
+      <button class="flash__remove" onClick="this.parentElement.remove()">x</button>
+    </div>
+  </div>
+  {{/each}} {{/if}}{{>header}}
   <div class="content"></div>
   {{{body}}}
   </div>

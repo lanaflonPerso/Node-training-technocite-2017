@@ -9,6 +9,7 @@ const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const flash = require('connect-flash');
 const errorHandlers = require('./handlers/errorHandlers');
+const expressValidator = require('express-validator');
 const sessionStore = new session.MemoryStore;
 // create our Express app
 const app = express();
@@ -28,6 +29,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Take the raw requests and turn them into usable properties of req.body
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }));
+
+// Validation engine
+app.use(expressValidator());
+
 // Cookie management
 app.use(cookieParser('secret'));
 // Session management
@@ -42,9 +47,9 @@ app.use(session({
 // Flash message management
 app.use(flash());
 
-app.use((req,res,next)=>
-{   
+app.use((req, res, next) => {
     res.locals.flash = req.session.flash;
+    console.log(res.locals.flash)
     delete req.session.flash;
     next();
 })

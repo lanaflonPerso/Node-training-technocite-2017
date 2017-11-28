@@ -20,9 +20,12 @@ router.post('/magasins/add/:id',
     magasinController.resize,
     magasinController.updateMagasin);
 
-    // USers controller
-router.get('/login',userController.loginForm)
-router.get('/register',userController.registerForm)
+// USers controller
+router.get('/login', userController.loginForm)
+router.get('/register', userController.registerForm)
+
+router.post('/register', userController.validateRegister)
+
 module.exports = router;
 
 
