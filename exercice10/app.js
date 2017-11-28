@@ -58,6 +58,7 @@ app.use(flash());
 
 app.use((req, res, next) => {
     res.locals.flash = req.session.flash;
+    res.locals.user = req.user || null;
     delete req.session.flash;
     next();
 })
