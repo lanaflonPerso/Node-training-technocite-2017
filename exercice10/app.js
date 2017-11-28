@@ -11,6 +11,9 @@ const flash = require('connect-flash');
 const errorHandlers = require('./handlers/errorHandlers');
 const expressValidator = require('express-validator');
 const sessionStore = new session.MemoryStore;
+const passport = require('passport');
+const mongoose = require('mongoose')
+const User = mongoose.model('User');
 // create our Express app
 const app = express();
 
@@ -43,7 +46,13 @@ app.use(session({
     saveUninitialized: true,
     resave: 'true',
     secret: 'secret'
-}));;
+}));
+// Init passport
+passport.use(User.createStrategy());
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+app.use(passport.initialize());
+app.use(passport.session());
 // Flash message management
 app.use(flash());
 

@@ -3,6 +3,7 @@ const router = express.Router();
 const magasinController = require('../controllers/magasinController');
 const pagesController = require('../controllers/pagesController');
 const userController = require('../controllers/userController');
+const authenticationController = require('../controllers/authenticationController')
 
 router.get('/', magasinController.getMagasins)
 router.get('/magasins/:slug', magasinController.getMagasinBySlug)
@@ -24,7 +25,9 @@ router.post('/magasins/add/:id',
 router.get('/login', userController.loginForm)
 router.get('/register', userController.registerForm)
 
-router.post('/register', userController.validateRegister, userController.register)
+router.post('/login', authenticationController.login)
+
+router.post('/register', userController.validateRegister, userController.register, authenticationController.login)
 
 module.exports = router;
 
