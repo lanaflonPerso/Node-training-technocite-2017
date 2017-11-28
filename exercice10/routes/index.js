@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const magasinController = require('../controllers/magasinController');
 const pagesController = require('../controllers/pagesController');
+const userController = require('../controllers/userController');
 
 router.get('/', magasinController.getMagasins)
 router.get('/magasins/:slug', magasinController.getMagasinBySlug)
@@ -19,7 +20,9 @@ router.post('/magasins/add/:id',
     magasinController.resize,
     magasinController.updateMagasin);
 
-
+    // USers controller
+router.get('/login',userController.loginForm)
+router.get('/register',userController.registerForm)
 module.exports = router;
 
 
