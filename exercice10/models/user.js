@@ -3,7 +3,6 @@ const Schema = mongoose.Schema;
 const validator = require('validator');
 mongoose.promise = global.Promise;
 const md5 = require("md5");
-const validator = require('validator');
 const mongodbErrorHandler = require("mongoose-mongodb-errors")
 const passportLocalMongoose = require("passport-local-mongoose")
 

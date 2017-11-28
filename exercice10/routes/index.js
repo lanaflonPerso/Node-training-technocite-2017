@@ -24,7 +24,7 @@ router.post('/magasins/add/:id',
 router.get('/login', userController.loginForm)
 router.get('/register', userController.registerForm)
 
-router.post('/register', userController.validateRegister)
+router.post('/register', userController.validateRegister, userController.register)
 
 module.exports = router;
 

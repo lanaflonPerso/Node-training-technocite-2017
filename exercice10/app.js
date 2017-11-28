@@ -49,7 +49,6 @@ app.use(flash());
 
 app.use((req, res, next) => {
     res.locals.flash = req.session.flash;
-    console.log(res.locals.flash)
     delete req.session.flash;
     next();
 })

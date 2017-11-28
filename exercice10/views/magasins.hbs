@@ -2,18 +2,18 @@
 <div class="stores">
     {{#each magasins as |magasin|}}
     <div class="store store__hero">
-        <a href="/magasins/{{magasin.slug}}">
         <div class="store__actions">
             <a href="/ " class="store__action--edit">edit</a>
         </div>
-        <div>
-            <img src="/uploads/{{magasin.photo}}" alt="{{magasin.description}}" />
-            <h2 class="title">{{magasin.name}}</h2>
-            <p>
-                {{magasin.description}}
-            </p>
-        </div>
-        
+        <a href="/magasins/{{magasin.slug}}">
+            <div>
+                <img src="/uploads/{{magasin.photo}}" alt="{{magasin.description}}" />
+                <h2 class="title">{{magasin.name}}</h2>
+                <p>
+                    {{magasin.description}}
+                </p>
+            </div>
+
         </a>
     </div>
     {{/each}}
