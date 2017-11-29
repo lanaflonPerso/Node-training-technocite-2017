@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
-const Serie = mongoose.model('Serie');
+const Season = mongoose.model('Season');
 const boom = require('boom')
-const validation = require('../ValidationsSchemas/SerieValidationSChema');
+const validation = require('../ValidationsSchemas/SeasonValidationSChema');
 module.exports = {
     method: 'POST',
-    path: '/api/series/',
+    path: '/api/series/seasons/',
     options: {
         validate: {
             payload: validation,
@@ -12,13 +12,13 @@ module.exports = {
         }
     },
     handler: async (req, h) => {
-        const serie = await new Serie(req.payload);
+        const season = await new Season(req.payload);
         try {
-            await serie.save()
+            await season.save()
         } catch (e) {
             console.log(e)
             return boom.badRequest(e)
         }
-        return serie;
+        return season;
     }
 }

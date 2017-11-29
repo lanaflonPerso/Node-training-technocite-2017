@@ -3,7 +3,7 @@ module.exports = {
     method: 'GET',
     path: '/api/series/',
     handler: (req, h) => {
-        console.log('ttt')
+        console.log(req.query);
         return {
             name: "gilles",
             age: 43,

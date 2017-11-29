@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const mongodbErrorHandler = require("mongoose-mongodb-errors")
 const serieSchema = Schema({
     title: {
         type: String,
@@ -14,4 +15,5 @@ const serieSchema = Schema({
     },
     seasons: []
 });
+serieSchema.plugin(mongodbErrorHandler)
 module.exports = mongoose.model('Serie', serieSchema);
