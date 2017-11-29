@@ -17,7 +17,6 @@ module.exports = {
 
     },
     handler: async (req, h) => {
-        console.log('oooo')
         var transporter = promisify(nodemailer.createTransport(smtpTransport({
             service: 'gmail',
             host: 'smtp.gmail.com',
@@ -28,10 +27,11 @@ module.exports = {
         })));
 
         var mailOptions = {
-            from: 'gilles.Wales@gmail.com',
+            from: process.env.MAIL_ADDRESS,
             to: 'gilles@triptyk.eu',
             subject: 'Sending Email using Node.js[nodemailer]',
-            text: 'That was easy!'
+            text: 'That was easy!',
+            html: '<b> That was easy </b>'
         };
         await transporter.sendMail(mailOptions);
         return {
