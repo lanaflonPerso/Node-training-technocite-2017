@@ -15,5 +15,5 @@ const serieSchema = Schema({
     },
     seasons: []
 });
-serieSchema.plugin(mongodbErrorHandler)
+// serieSchema.plugin(mongodbErrorHandler)
 module.exports = mongoose.model('Serie', serieSchema);
