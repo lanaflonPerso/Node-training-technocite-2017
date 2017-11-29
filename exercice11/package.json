@@ -6,10 +6,15 @@
   "license": "MIT",
   "dependencies": {
     "boom": "^7.1.1",
+    "dotenv": "^4.0.0",
     "es6-promisify": "^5.0.0",
+    "es6-promisify-all": "^0.1.0",
     "glob": "^7.1.2",
     "hapi": "^17.1.1",
     "mongoose": "^4.13.5",
-    "mongoose-mongodb-errors": "^0.0.2"
+    "mongoose-mongodb-errors": "^0.0.2",
+    "nodemailer": "^4.4.0",
+    "nodemailer-smtp-transport": "^2.7.4",
+    "nodemailer-sparkpost-transport": "^2.0.0"
   }
 }

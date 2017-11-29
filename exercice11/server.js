@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const promisify = require('es6-promisify');
 const glob = require('glob');
 const globP = promisify(glob);
-"use strict";
 const Hapi = require('hapi');
 
 async function initializeDB() {
@@ -22,6 +21,7 @@ async function initializeModels() {
     models.map(item => require(path.join(process.cwd(), item)));
 }
 async function init() {
+    require('dotenv').config({ path: 'variables.env' });
     await initializeDB();
     await initializeModels();
     const server = Hapi.server({ port: 8000 });
