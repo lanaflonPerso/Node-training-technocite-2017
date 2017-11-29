@@ -1,15 +1,13 @@
 const mongoose = require('mongoose');
 const Serie = mongoose.model('Serie');
 const boom = require('boom')
-const Joi = require('joi')
+const validation = require('../ValidationsSchemas/SerieValidationSChema');
 module.exports = {
     method: 'POST',
     path: '/api/series/',
     options: {
         validate: {
-            payload: {
-                title: Joi.string().min(8)
-            },
+            payload: validation,
             failAction: (request, h, err) => err
         }
     },
