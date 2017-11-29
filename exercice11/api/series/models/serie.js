@@ -13,7 +13,11 @@ const serieSchema = Schema({
     photo: {
         type: String
     },
-    seasons: []
+    seasons: [{
+        type: Schema.ObjectId,
+        ref: 'Season'
+    }
+    ]
 });
 // serieSchema.plugin(mongodbErrorHandler)
 module.exports = mongoose.model('Serie', serieSchema);

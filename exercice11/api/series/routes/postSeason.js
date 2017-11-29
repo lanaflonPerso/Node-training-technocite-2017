@@ -13,7 +13,6 @@ module.exports = {
         }
     },
     handler: async (req, h) => {
-        console.log(req.params.id)
         const season = await new Season(req.payload);
         try {
             const serie = await Serie.findById(req.params.id);
