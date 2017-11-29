@@ -5,6 +5,7 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "boom": "^7.1.1",
     "es6-promisify": "^5.0.0",
     "glob": "^7.1.2",
     "hapi": "^17.1.1",

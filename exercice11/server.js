@@ -27,6 +27,7 @@ async function init() {
     const server = Hapi.server({ port: 8000 });
     await initializeRoutes(server);
     await server.start();
+    // console.log(server.table())
     console.log('Server started at: ' + server.info.uri);
 }
 init()
