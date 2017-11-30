@@ -25,7 +25,6 @@ exports.validateRegister = (req, res, next) => {
 
 exports.register = async (req, res, next) => {
     const user = await new User({ email: req.body.email, name: req.body.name });
-
     const register = promisify(User.register, User)
     await register(user, req.body.password);
     next();
